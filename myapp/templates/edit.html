@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <title>Student Information</title>
+    <style>
+        body {
+            font-family: poppins;
+            margin: 20px;
+            padding: 10px 100px;
+            background-color: #F1F0E9;
+        }
+        h1 {
+            color: #41644A;
+            justify-content: center;
+        }
+        form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="date"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #0D4715;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0D4715;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            color: #0D4715;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Edit form</h1>
+    <form action="{% url 'update' student.id %}" method="post">
+        {% csrf_token %}
+        <label for="StudentID">Student ID: </label>
+        <input type="text" name="StudentID" id="StudentID" value="{{ student.StudentID }}" required><br><br>
+
+        <label for="FirstName">First Name: </label>
+        <input type="text" name="FirstName" id="FirstName" value="{{ student.FirstName }}" required><br><br>
+        
+        <label for="LastName">Last Name: </label>
+        <input type="text" name="LastName" id="LastName" value="{{ student.LastName }}" required><br><br>
+        
+        <label for="Email">Email: </label>
+        <input type="text" name="Email" id="Email" value="{{ student.Email }}" required><br><br>
+        
+        <label for="DateOfBirth">Date of Birth: </label>
+        <input type="date" name="DateOfBirth" id="DateOfBirth" value="{{ student.DateOfBirth }}" required><br><br>
+        
+        <label for="Course">Course: </label>
+        <input type="text" name="Course" id="Course" value="{{ student.Course }}" required><br><br>
+        
+        <label for="EnrollmentDate">Enrollment Date: </label>
+        <input type="date" name="EnrollmentDate" id="EnrollmentDate" value="{{ student.EnrollmentDate }}" required><br><br>
+
+        <button type="submit">Re-Submit</button>
+    </form>
+</body>
+</html>
